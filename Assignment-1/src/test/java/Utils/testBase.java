@@ -36,7 +36,7 @@ public class testBase {
 	
 	//Initialising the driver
 	@BeforeSuite	
-	public void Initialisation() {
+	public void Initialisation() throws InterruptedException {
 		
 		String url = prop.getProperty("url");
 		String OSName = prop.getProperty("OS");
@@ -85,6 +85,11 @@ public class testBase {
 		driver.manage().window().maximize();
 		
 		driver.get(url);
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+			
+		
 		
 	}
 	
