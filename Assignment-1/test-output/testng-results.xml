@@ -2,22 +2,22 @@
 <testng-results ignored="1" total="3" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-04-10T16:13:47Z" name="Suite" finished-at="2019-04-10T16:13:59Z" duration-ms="12357">
+  <suite started-at="2019-04-15T09:43:26Z" name="Suite" finished-at="2019-04-15T09:54:09Z" duration-ms="643061">
     <groups>
     </groups>
-    <test started-at="2019-04-10T16:13:47Z" name="Test" finished-at="2019-04-10T16:13:59Z" duration-ms="12357">
+    <test started-at="2019-04-15T09:43:26Z" name="Test" finished-at="2019-04-15T09:54:09Z" duration-ms="643061">
       <class name="TestCases.homePagetest">
-        <test-method is-config="true" signature="Initialisation()[pri:0, instance:TestCases.homePagetest@609cd4d8]" started-at="2019-04-10T16:13:30Z" name="Initialisation" finished-at="2019-04-10T16:13:47Z" duration-ms="17072" status="PASS">
+        <test-method is-config="true" signature="Initialisation()[pri:0, instance:TestCases.homePagetest@4bb33f74]" started-at="2019-04-15T09:42:52Z" name="Initialisation" finished-at="2019-04-15T09:43:26Z" duration-ms="34623" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Initialisation -->
-        <test-method signature="homePage()[pri:0, instance:TestCases.homePagetest@609cd4d8]" started-at="2019-04-10T16:13:47Z" name="homePage" finished-at="2019-04-10T16:13:58Z" duration-ms="11759" status="PASS">
+        <test-method signature="homePage()[pri:0, instance:TestCases.homePagetest@4bb33f74]" started-at="2019-04-15T09:43:26Z" name="homePage" finished-at="2019-04-15T09:43:36Z" duration-ms="10067" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePage -->
       </class> <!-- TestCases.homePagetest -->
       <class name="TestCases.resultsPageTest">
-        <test-method signature="resultPage()[pri:0, instance:TestCases.resultsPageTest@17f7cd29]" started-at="2019-04-10T16:13:59Z" name="resultPage" finished-at="2019-04-10T16:13:59Z" duration-ms="564" status="PASS">
+        <test-method signature="resultPage()[pri:0, instance:TestCases.resultsPageTest@759d26fb]" started-at="2019-04-15T09:43:37Z" name="resultPage" finished-at="2019-04-15T09:54:09Z" duration-ms="632688" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- resultPage -->

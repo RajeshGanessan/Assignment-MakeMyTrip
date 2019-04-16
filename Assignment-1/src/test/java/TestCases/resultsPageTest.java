@@ -19,9 +19,7 @@ public class resultsPageTest extends testBase{
 		
 		resultPage.verifyPageTitle();
 		
-		resultPage.getProperties();
-		
-		resultPage.sortProperty();
+		resultPage.getAllPropertiesPrices();
 		
 		
 		

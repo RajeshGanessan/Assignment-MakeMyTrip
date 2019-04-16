@@ -18,9 +18,7 @@ public class resultsPage {
 	WebDriver driver;
 
 	private List<WebElement> properties;
-	private List<String> activeProps;
-	private int propInt;
-	private ArrayList<Integer> intNum = new ArrayList<Integer>();
+	private ArrayList<Integer> priceList = new ArrayList<Integer>();
 	private String pageTitle;
 	private String value;
 
@@ -34,6 +32,9 @@ public class resultsPage {
 
 	@FindBy(how = How.XPATH, using = "//div[@class='ui-agent__text']/h4")
 	WebElement propName;
+	
+	@FindBy(how = How.XPATH, using = "//li[contains(@id,'listing_')]//a[contains(@class,'text-price')]")
+	List<WebElement> listPriceProperties;
 
 	// To get page title
 	public String getTitle() {
@@ -52,86 +53,33 @@ public class resultsPage {
 		System.out.println("Title successfully verified");
 	}
 
-	// to get the list of property details
-	public List<WebElement> allProperties() {
-
-		properties = driver
-				.findElements(By.xpath("//ul[@class='listing-results clearfix js-gtm-list']/li/div/div[2]/a"));
-
-		return properties;
-	}
+	
 
 	// selecting region
-	public void getProperties() throws InterruptedException {
-
-		List<WebElement> suggesions = allProperties();
-
-		activeProps = new ArrayList<String>();
-		// Select required item
-		for (WebElement props : suggesions) {
-
-			value = props.getText();
-
-			activeProps.add(value);
-		}
-
-		// System.out.println(activeProps);
-
-	}
-
-	// sorting the property values
-	public void sortProperty() {
-
-		String newSub = null;
-
-		String subText;
-
-		for (String newValue : activeProps) {
-
-			int length = newValue.length();
-			// System.out.println(length);
-			if (length < 3) {
-				try {
-					System.out.println("no values");
-				} catch (StringIndexOutOfBoundsException e) {
-					e.getMessage();
-				}
-			} else if (length > 3) {
-
-				subText = newValue.substring(1, 7);
-				if (subText.contains(",")) {
-					newSub = subText.replaceAll(",", "");
-					try {
-						propInt = Integer.parseInt(newSub);
-					} catch (NumberFormatException e) {
-						e.toString();
-					}
-				}
-
-				else {
-					continue;
-				}
+	public void getAllPropertiesPrices() {
+		
+		for(WebElement PropertyPrices : listPriceProperties) {
+			
+			if(PropertyPrices.getText().replaceAll("[^0-9]", "").isEmpty()){
+				System.out.println(PropertyPrices.getText());
+				System.out.println("The One Property has a price="+PropertyPrices.getText()+" which is not the actual value, So this property was not added in Pricelist");
 
 			}
-
+			else {
+				priceList.add(Integer.parseInt(PropertyPrices.getText().replaceAll("[^0-9]","")));
+			}
+			
 		}
-		System.out.println(intNum);
+		System.out.println("List of Properties in Reverse Order");
+		Collections.sort(priceList, Collections.reverseOrder());
+		System.out.println(priceList);
+
 	}
 
-	// verifying title
-	public void checkTitle() {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-
-		wait.until(ExpectedConditions.visibilityOf(title));
-
-		if (title.isDisplayed()) {
-			System.out.println("title displayed");
-		}
-	}
-
+	
 	// selecting PropertyName
 	public void selectPropName() {
-
+  
 		if (propName.isDisplayed()) {
 			propName.click();
 		}
